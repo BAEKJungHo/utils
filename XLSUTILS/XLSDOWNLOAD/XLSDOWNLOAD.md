@@ -1,37 +1,37 @@
 # Java Excel API 
-## Workbook°ú FileUtils.transformedXls¸¦ ÀÌ¿ëÇÑ ¿¢¼¿ ´Ù¿î·Îµå
+## Workbookê³¼ FileUtils.transformedXlsë¥¼ ì´ìš©í•œ ì—‘ì…€ ë‹¤ìš´ë¡œë“œ
 
-	APACHE POI¹æ½Ä°ú Java Excel API ¹æ½ÄÀÌ ÀÖ´Âµ¥, Java Excel API ¹æ½ÄÀÌ ÄÚµå·®ÀÌ ÈÎ¾À Àû´Ù.
+ APACHE POIë°©ì‹ê³¼ Java Excel API ë°©ì‹ì´ ìžˆëŠ”ë°, Java Excel API ë°©ì‹ì´ ì½”ë“œëŸ‰ì´ í›¨ì”¬ ì ë‹¤.
 
-	- Java Excel API 
-		- Java : Workbook°ú FileUtils.transformedXls »ç¿ë.
-		- XLS : ¿¢¼¿ ÆÄÀÏ ³»ºÎ¿¡ µû·Î µ¥ÀÌÅÍ ¹ÙÀÎµùÀÌ µÇµµ·Ï ÄÚµùÀ» ÇØÁà¾ß ÇÑ´Ù.
+ - Java Excel API 
+   - Java : Workbookê³¼ FileUtils.transformedXls ì‚¬ìš©.
+   - XLS : ì—‘ì…€ íŒŒì¼ ë‚´ë¶€ì— ë”°ë¡œ ë°ì´í„° ë°”ì¸ë”©ì´ ë˜ë„ë¡ ì½”ë”©ì„ í•´ì¤˜ì•¼ í•œë‹¤.
 
 ### XLS
 
-	- sample.xlsÀÇ ÆÄÀÏ¿¡ ´ÙÀ½°ú °°Àº Çü½ÄÀ¸·Î ¿¢¼¿ ³»ºÎ¿¡ ÄÚµùÀ» ÇØÁà¾ß ÇÑ´Ù.
+  - sample.xlsì˜ íŒŒì¼ì— ë‹¤ìŒê³¼ ê°™ì€ í˜•ì‹ìœ¼ë¡œ ì—‘ì…€ ë‚´ë¶€ì— ì½”ë”©ì„ í•´ì¤˜ì•¼ í•œë‹¤.
 
-	```html 
-	<jx:forEach items="${questList}" var="quest" varStatus="questIndex">
-	```
+  ```html 
+  <jx:forEach items="${questList}" var="quest" varStatus="questIndex">
+  ```
 
-	- Áï, Java¿¡¼­ ¿¢¼¿¿¡ µ¥ÀÌÅÍ¸¦ ´ã±âÀ§ÇØ MapÀ¸·Î ÀúÀåÇÑ, list È¤Àº VOÀÇ °ªµéÀÌ ¿¢¼¿ ³»ºÎ¿¡ ÄÚµùÇÑ À§ ÄÚµå·Î ÀÎÇØ ÀÚµ¿À¸·Î ¹ÙÀÎµùÀÌ µÈ´Ù.
+  - ì¦‰, Javaì—ì„œ ì—‘ì…€ì— ë°ì´í„°ë¥¼ ë‹´ê¸°ìœ„í•´ Mapìœ¼ë¡œ ì €ìž¥í•œ, list í˜¹ì€ VOì˜ ê°’ë“¤ì´ ì—‘ì…€ ë‚´ë¶€ì— ì½”ë”©í•œ ìœ„ ì½”ë“œë¡œ ì¸í•´ ìžë™ìœ¼ë¡œ ë°”ì¸ë”©ì´ ëœë‹¤.
 
-	> ¿¢¼¿ ³»ºÎ¿¡ ¼³Á¤ÇÑ ÆùÆ® ¹× »çÀÌÁî°¡, ¿¢¼¿ ´Ù¿î·Îµå ¹öÆ°À» Å¬¸¯ÇÏ¿© µ¥ÀÌÅÍ¸¦ ¹Þ°Ô µÇ´Â °æ¿ì, ±×´ë·Î Àû¿ëµÈ´Ù.
+  > ì—‘ì…€ ë‚´ë¶€ì— ì„¤ì •í•œ í°íŠ¸ ë° ì‚¬ì´ì¦ˆê°€, ì—‘ì…€ ë‹¤ìš´ë¡œë“œ ë²„íŠ¼ì„ í´ë¦­í•˜ì—¬ ë°ì´í„°ë¥¼ ë°›ê²Œ ë˜ëŠ” ê²½ìš°, ê·¸ëŒ€ë¡œ ì ìš©ëœë‹¤.
 	
 
 ### JAVA 
 
-	- ¿¢¼¿ ´Ù¿î·Îµå½Ã ÇÑ ½ÃÆ®¿¡¸¸ Àû¿ë
+  - ì—‘ì…€ ë‹¤ìš´ë¡œë“œì‹œ í•œ ì‹œíŠ¸ì—ë§Œ ì ìš©
 
 ```java
     @PostMapping("/excel")
     public void jXlsSample (@ModelAttribute("xxxVo") XXXVo xxxVo, HttpServletResponse res, Model model) throws IOException {
         Resource resource = resourceLoader.getResource("classpath:jXlsTemplate/fileName.xlsx");
 
-       // ÇÏµåÄÚµù º¸´Ù´Â, ¿À·ù ¸Þ¼¼Áö »ó¼ö¸¦ ¸¸µé¾î¼­ ³Ö´Â°Ô ÁÁ´Ù.
+       // í•˜ë“œì½”ë”© ë³´ë‹¤ëŠ”, ì˜¤ë¥˜ ë©”ì„¸ì§€ ìƒìˆ˜ë¥¼ ë§Œë“¤ì–´ì„œ ë„£ëŠ”ê²Œ ì¢‹ë‹¤.
         if (!resource.exists()) {
-            throw new NotFoundContentsException("ÇØ´ç ÆÄÀÏÀº Á¸ÀçÇÏÁö¾Ê½À´Ï´Ù.");
+            throw new NotFoundContentsException("í•´ë‹¹ íŒŒì¼ì€ ì¡´ìž¬í•˜ì§€ì•ŠìŠµë‹ˆë‹¤.");
         }
 
         // Make Test Data
@@ -49,15 +49,15 @@
     }
 ```
 
-	- ½ÃÆ® 2°³ ÀÌ»ó¿¡ Àû¿ë ½ÃÅ°´Â ¹æ¹ý
+  - ì‹œíŠ¸ 2ê°œ ì´ìƒì— ì ìš© ì‹œí‚¤ëŠ” ë°©ë²•
 
 ```java
-        /** »ý·« */
+        /** ìƒëžµ */
         Workbook transformedXls = FileUtils.transformXls(resource.getFile(), beans);
-        transformedXls.setSheetName(0, "¼³¹®Á¶»ç");
-        transformedXls.setSheetName(1, "Âü¿©ÀÚ");
+        transformedXls.setSheetName(0, "ì„¤ë¬¸ì¡°ì‚¬");
+        transformedXls.setSheetName(1, "ì°¸ì—¬ìž");
         transformedXls.write(res.getOutputStream());
         res.getOutputStream().flush();
 ```
 
-	> ½ÃÆ® 2°³ ÀÌ»óÀº À§ Ã³·³ »ç¿ëÇÏ¸éµÇ¸ç, ´ë½Å °¢ ½ÃÆ®¸¶´Ù ¿¢¼¿ ÆÄÀÏ ³»ºÎ¿¡ ÄÚµùÀ» ÇØÁà¾ß ÇÑ´Ù. ±×·¯¸é ¾Ë¾Æ¼­ map¿¡ ´ã±ä °ªµéÀÌ ¹ÙÀÎµùÀÌ µÈ´Ù.
+  > ì‹œíŠ¸ 2ê°œ ì´ìƒì€ ìœ„ ì²˜ëŸ¼ ì‚¬ìš©í•˜ë©´ë˜ë©°, ëŒ€ì‹  ê° ì‹œíŠ¸ë§ˆë‹¤ ì—‘ì…€ íŒŒì¼ ë‚´ë¶€ì— ì½”ë”©ì„ í•´ì¤˜ì•¼ í•œë‹¤. ê·¸ëŸ¬ë©´ ì•Œì•„ì„œ mapì— ë‹´ê¸´ ê°’ë“¤ì´ ë°”ì¸ë”©ì´ ëœë‹¤.
