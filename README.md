@@ -1,2 +1,3 @@
 # UTILS
-CLASS, METHOD, FUNCTION AND SO ON ..... PROGRAM UTILS
+
+  > Util성을 지닌 Class, Method, Function 개발
