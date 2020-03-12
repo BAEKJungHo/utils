@@ -169,27 +169,27 @@ public class DateHandler {
 * @return
 */
 public static List<String> findHiddenDateBetweenStartAndEnd(String startDate, String endDate) {
-final String DATE_PATTERN = "yyyy-MM-dd";
-List<String> dates = new ArrayList<>();
-SimpleDateFormat sdf = new SimpleDateFormat(DATE_PATTERN);
+	final String DATE_PATTERN = "yyyy-MM-dd";
+	List<String> dates = new ArrayList<>();
+	SimpleDateFormat sdf = new SimpleDateFormat(DATE_PATTERN);
 
-Date parsedStartDate = null;
-Date parsedEndDate = null;
+	Date parsedStartDate = null;
+	Date parsedEndDate = null;
 
-try {
-    parsedStartDate= sdf.parse(startDate);
-    parsedEndDate = sdf.parse(endDate);
-} catch (ParseException e) {
-    e.printStackTrace();
-}
+	try {
+	    parsedStartDate= sdf.parse(startDate);
+	    parsedEndDate = sdf.parse(endDate);
+	} catch (ParseException e) {
+	    e.printStackTrace();
+	}
 
-while(parsedStartDate.compareTo(parsedEndDate) <= 0) {
-    dates.add(sdf.format(parsedStartDate));
-    Calendar calendar = Calendar.getInstance();
-    calendar.setTime(parsedStartDate);
-    calendar.add(Calendar.DAY_OF_MONTH, 1);
-    parsedStartDate = calendar.getTime();
-}
-return dates;
+	while(parsedStartDate.compareTo(parsedEndDate) <= 0) {
+	    dates.add(sdf.format(parsedStartDate));
+	    Calendar calendar = Calendar.getInstance();
+	    calendar.setTime(parsedStartDate);
+	    calendar.add(Calendar.DAY_OF_MONTH, 1);
+	    parsedStartDate = calendar.getTime();
+	}
+	return dates;
 }
 ```    
