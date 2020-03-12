@@ -247,3 +247,65 @@ public static String getDateDay(String date, String dateType) {
 	return day ;
 }
 ```    
+
+## DayOfWeek Enum class
+
+```java
+public enum DayOfTheWeek {
+    MONDAY {
+        @Override
+        public String toString() {
+            return "월요일";
+        }
+    },
+    TUESDAY {
+        @Override
+        public String toString() {
+            return "화요일";
+        }
+    },
+    WEDNESDAY {
+        @Override
+        public String toString() {
+            return "수요일";
+        }
+    },
+    THURSDAY {
+        @Override
+        public String toString() {
+            return "목요일";
+        }
+    },
+    FRIDAY {
+        @Override
+        public String toString() {
+            return "금요일";
+        }
+    },
+    SATURDAY {
+        @Override
+        public String toString() {
+            return "토요일";
+        }
+    },
+    SUNDAY {
+        @Override
+        public String toString() {
+            return "일요일";
+        }
+    };
+}
+```
+
+## DateFormat Enum class
+
+```java
+public enum DateFormat {
+    YYYYMMDD {
+        @Override
+        public String toString() {
+            return "yyyy-MM-dd";
+        }
+    }
+}
+```
