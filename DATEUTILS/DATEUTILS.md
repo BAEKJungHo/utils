@@ -193,3 +193,57 @@ public static List<String> findHiddenDateBetweenStartAndEnd(String startDate, St
 	return dates;
 }
 ```    
+
+## 특정 날짜 요일 구하기
+
+```java
+/**
+* 특정 날짜에 대해여 요일 구하기
+* @param date
+* @param dateType
+* @return
+* @throws Exception
+*/
+public static String getDateDay(String date, String dateType) {
+	String day = "" ;
+
+	SimpleDateFormat dateFormat = new SimpleDateFormat(dateType) ;
+	Date newDate = null;
+	try {
+	    newDate = dateFormat.parse(date);
+	} catch (ParseException e) {
+	    throw new ShowUserMessageException("날짜 변환 과정에 에러가 발생했습니다");
+	}
+
+	Calendar cal = Calendar.getInstance() ;
+	cal.setTime(newDate);
+
+	int dayNum = cal.get(Calendar.DAY_OF_WEEK) ;
+
+	switch(dayNum){
+	    case 1:
+		day = DayOfTheWeek.SUNDAY.toString();
+		break ;
+	    case 2:
+		day = DayOfTheWeek.MONDAY.toString();
+		break ;
+	    case 3:
+		day = DayOfTheWeek.TUESDAY.toString();
+		break ;
+	    case 4:
+		day = DayOfTheWeek.WEDNESDAY.toString();
+		break ;
+	    case 5:
+		day = DayOfTheWeek.THURSDAY.toString();
+		break ;
+	    case 6:
+		day = DayOfTheWeek.FRIDAY.toString();
+		break ;
+	    case 7:
+		day = DayOfTheWeek.SATURDAY.toString();
+		break ;
+	}
+
+	return day ;
+}
+```    
