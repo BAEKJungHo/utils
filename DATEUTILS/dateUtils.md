@@ -309,3 +309,26 @@ public enum DateFormat {
     }
 }
 ```
+
+## 날짜 비교
+
+```java
+public boolean compareDate(String startDate, String endDate) {
+	final String DATE_PATTERN = "yyyy-MM-dd HH:mm";
+	SimpleDateFormat sdf = new SimpleDateFormat(DATE_PATTERN);
+	Date parsedStartDate = null;
+	Date parsedEndDate = null;
+
+	try {
+	    parsedStartDate= sdf.parse(startDate);
+	    parsedEndDate = sdf.parse(endDate);
+	} catch (ParseException e) {
+	    e.printStackTrace();
+	}
+
+	if(parsedStartDate.compareTo(parsedEndDate) == -1) {
+	    return true;
+	}
+	return false;
+}
+```    
