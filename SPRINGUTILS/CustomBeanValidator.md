@@ -1,6 +1,6 @@
 ```java
 @Component
-public class BeanValidationUtils {
+public class CustomBeanValidator {
 
     /**
      * @Valid, @Validated 어노테이션이 적용된 BindingResult 에러 메시지 출력
